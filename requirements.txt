@@ -1,0 +1,7 @@
+streamlit
+streamlit-audiorecorder
+transformers
+torch
+accelerate
+librosa
+soundfile
