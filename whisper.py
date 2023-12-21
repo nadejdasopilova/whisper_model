@@ -1,7 +1,6 @@
 import torch
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
-from datasets import load_dataset
-
+from fastapi import FastAPI, UploadFile
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
@@ -28,8 +27,15 @@ pipe = pipeline(
     device=device,
 )
 
-dataset = load_dataset("distil-whisper/librispeech_long", "clean", split="validation")
-sample = dataset[0]["audio"]
+app = FastAPI()
 
-result = pipe(sample)
-print(result["text"])
+
+@app.get("/")
+def root():
+    return "A'm alive"
+
+
+@app.post("/convert")
+def convert(audio: UploadFile):
+    result = pipe(audio.file.read())
+    return result["text"]

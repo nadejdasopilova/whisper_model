@@ -1,0 +1,7 @@
+accelerate
+librosa
+soundfile
+transformers
+torch
+fastapi
+python-multipart
