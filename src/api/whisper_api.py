@@ -1,7 +1,9 @@
 import torch
+import transformers
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from fastapi import FastAPI, UploadFile
 
+transformers.logging.set_verbosity_error()
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
 
