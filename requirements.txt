@@ -7,3 +7,6 @@ fastapi
 python-multipart
 httpx
 pytest
+streamlit
+streamlit-audiorecorder
+uvicorn
