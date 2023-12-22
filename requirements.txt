@@ -1,0 +1,12 @@
+accelerate
+librosa
+soundfile
+transformers
+torch
+fastapi
+python-multipart
+httpx
+pytest
+streamlit
+streamlit-audiorecorder
+uvicorn
